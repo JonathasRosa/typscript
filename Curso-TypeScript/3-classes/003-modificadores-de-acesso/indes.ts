@@ -1,5 +1,9 @@
 /* 
+    1 - Public: Pode ser acessado tanto pela mesma class, classes filhas e outras classes.
+    2 - Protected: Pode ser acessado tanto pela mesma class, classes filhas, mas não pode ser acessado outras classes.
+    3 - Private: Pode ser acessado somente pela própria classe.
 
+*/
 //Classes
 class Pessoa {
     nome: string = "";
