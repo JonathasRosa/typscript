@@ -1,7 +1,7 @@
 //Classes
 class Pessoa {
-   protected nome: string = "";
-   protected idade: number = 0;
+   public nome: string = "";
+   public idade: number = 0;
     //Inicializador
     constructor(nome: string, idade: number) {
         this.nome = nome
@@ -26,7 +26,7 @@ class Jonathas extends Pessoa {
     }
  };
 class Ingrid extends Pessoa {
-    private profissao: string = "professora"
+    public profissao: string = "professora"
     constructor(){
         super("Ingrid", 30)
     }
@@ -40,7 +40,7 @@ const ingrid = new Ingrid();
 
 console.log(jonathas.nome);
 console.log(jonathas.idade);
-console.lof(jonathas.comer("Lazanha"));
+console.log(jonathas.comer("Lazanha"));
 console.log(jonathas.fezAniversario());
 console.log(jonathas.getProfissao())
 console.log(ingrid.nome);

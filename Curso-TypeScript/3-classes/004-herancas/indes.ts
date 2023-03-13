@@ -1,7 +1,8 @@
+/* Getters e setters são usados para proteger seus dados, especialmente na criação de classes, para cada instância de variável, um método de setter o define oua atualiza*/
 //Classes
 class Pessoa {
-   protected nome: string = "";
-   protected idade: number = 0;
+   public nome: string = "";
+   public idade: number = 0;
     //Inicializador
     constructor(nome: string, idade: number) {
         this.nome = nome
@@ -17,34 +18,25 @@ class Pessoa {
 }
 
 class Jonathas extends Pessoa {
-    private profissao: string = "programador"
+    private _profissao: string = "Programador"
+
     constructor(){
         super("Jonathas", 37)
     }
-    public getProfissao(){
-      return `${this.nome} trabalha como programador`  
-    }
- };
-class Ingrid extends Pessoa {
-    private profissao: string = "professora"
-    constructor(){
-        super("Ingrid", 30)
-    }
-     public getProfissao(){
-      return `${this.nome} trabalha como professora`  
-    }
- };
 
+    get profissao() {
+        if (this._profissao === "Piloto de drone") {
+            return `Ele não é mais um programador mudou para ${this._profissao}`;
+        }
+        return this._profissao;
+    }
+    set profissao(valor: string) {
+       this._profissao = valor; 
+    }
+};
+ 
 const jonathas = new Jonathas();
-const ingrid = new Ingrid();
 
-console.log(jonathas.nome);
-console.log(jonathas.idade);
-console.lof(jonathas.comer("Lazanha"));
-console.log(jonathas.fezAniversario());
-console.log(jonathas.getProfissao())
-console.log(ingrid.nome);
-console.log(ingrid.idade);
-console.log(ingrid.comer("Pizza"));
-console.log(ingrid.fezAniversario());
-console.log(ingrid.getProfissao())
+console.log(jonathas.profissao);
+jonathas.profissao = "Piloto de drone";
+console.log(jonathas.profissao);
